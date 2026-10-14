@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research for a video ranking tool</title>
+  <!-- Preload the two weights used above the fold. Files live in /public/fonts/ -->
+  <link rel="preload" href="/fonts/HansenGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/HansenGrotesque-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <h1>Research for a video ranking tool in the making</h1>
+      <p class="subtitle">Your response is greatly appreciated</p>
+    </header>
+
+    <div class="video">
+      <!--
+        ▼ SWAP THE VIDEO HERE ▼
+        Replace VIDEO_ID_HERE with your YouTube video ID.
+        e.g. for https://www.youtube.com/watch?v=dQw4w9WgXcQ the ID is dQw4w9WgXcQ
+      -->
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1"
+        title="Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <section class="niche">
+      <h2 id="niche-heading">Choose a niche, I got a video you may like!</h2>
+      <div class="niche-row">
+        <select id="niche" name="niche" aria-labelledby="niche-heading">
+          <option value="" selected>Pick a niche...</option>
+          <option value="Personal branding and content creation" data-url="https://youtu.be/pKeZ5XK2vp4">Personal branding and content creation</option>
+          <option value="Lifestyle and fitness" data-url="https://youtu.be/lumimB_aa7M">Lifestyle and fitness</option>
+          <option value="Vlogging" data-url="https://youtu.be/OG3zqZNB6yg">Vlogging</option>
+          <option value="E-commerce" data-url="https://youtu.be/1tTgBOFp_fQ">E-commerce</option>
+          <option value="Sales, negotiation and communication" data-url="https://youtu.be/_YBOO_TW_gY">Sales, negotiation and communication</option>
+          <option value="Investing and money habits" data-url="https://youtu.be/vJabNEwZIuc">Investing and money habits</option>
+        </select>
+        <a id="niche-link" target="_blank" rel="noopener noreferrer" hidden>Watch the video →</a>
+      </div>
+    </section>
+
+    <section id="form-wrap">
+      <form id="feedback-form" novalidate>
+        <div class="field">
+          <label for="q1_goal">
+            <span class="num">1.</span>
+            What did you aim to get out of the video as well as using this ‘Ask’ feature?
+          </label>
+          <textarea id="q1_goal" name="q1_goal" rows="4"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q2_letdown">
+            <span class="num">2.</span>
+            Tell me about a moment where it didn’t give you what you needed, or where you
+            felt frustrated, confused, or let down. What did you do next?
+          </label>
+          <textarea id="q2_letdown" name="q2_letdown" rows="4"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q3_comparison">
+            <span class="num">3.</span>
+            How does this compare with your current methods on helping you decide whether
+            a video is worth watching?
+          </label>
+          <textarea id="q3_comparison" name="q3_comparison" rows="4"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q4_wishlist">
+            <span class="num">4.</span>
+            If you could change or add anything to make this something you’d use every day,
+            what would it be? Say anything that comes to mind, even if it sounds unrealistic.
+          </label>
+          <textarea id="q4_wishlist" name="q4_wishlist" rows="4"></textarea>
+        </div>
+
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+
+        <button type="submit" id="submit-btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="/src/niche.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
