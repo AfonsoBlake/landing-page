@@ -145,7 +145,8 @@ h1 {
      viewport height. Never below 240px. */
   width: max(min(240px, 100%), min(100%, var(--video-max, 640px), calc((100svh - var(--reserve)) * 16 / 9)));
   aspect-ratio: 16 / 9;
-  margin: 0 auto 8px;
+  position: relative;
+  margin: 0 auto var(--gap-video);
   border-radius: 12px;
   overflow: hidden;
   background: var(--ink);
@@ -159,12 +160,52 @@ h1 {
   border: 0;
 }
 
-.video-hint {
-  margin: 0 0 var(--gap-video);
-  text-align: center;
-  font-size: 0.875rem;
-  line-height: 1.3;
-  opacity: 0.8;
+/* Covers the whole player so the first tap anywhere unmutes */
+.sound-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sound-overlay[hidden] {
+  display: none;
+}
+
+.sound-overlay:hover:not(:disabled) {
+  transform: none;
+}
+
+.sound-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  transition: transform 0.15s;
+}
+
+.sound-overlay:hover .sound-pill {
+  transform: scale(1.05);
+}
+
+.sound-overlay:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
 }
 
 /* ── Niche picker ─────────────────────────────────── */
