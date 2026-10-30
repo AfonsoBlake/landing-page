@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-canvas: #f6f3ef;
+  --color-ink: #1f1b17;
+  --color-muted: #5f5750;
+  --color-line: #e5ded6;
+  --color-accent: #5b3fd6;
+  --color-accent-strong: #4a31b8;
+  --color-accent-soft: #ece8fd;
+  --font-sans: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+@keyframes slide-open {
+  from { opacity: 0; max-height: 0; transform: translateY(-6px); }
+  to { opacity: 1; max-height: 20rem; transform: none; }
+}
+.screen-in { animation: screen-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.pop { animation: pop 0.28s ease-out; }
+.slide-open { overflow: hidden; animation: slide-open 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-in, .pop, .slide-open { animation: none; }
+}
